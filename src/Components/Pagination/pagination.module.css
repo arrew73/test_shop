@@ -1,0 +1,19 @@
+.pagination__container ul{
+    display: flex;
+    justify-content: center;
+}
+
+.pagination__container li {
+    list-style-type:none;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid royalblue;
+}
+
+.pagination__container li:hover{
+    background: cornflowerblue;
+}
+
+.pagination__currentPage {
+    color: red;
+}

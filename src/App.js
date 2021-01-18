@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import {getTVList} from "./Redux/Reducers/shop-reducers";
+import {connect} from "react-redux";
+import {ShopPage} from "./Components/ShopPage/ShopPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    componentDidMount() {
+        this.props.getTVList()
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <h1 style={{textAlign:"center"}}>TV-SHOP</h1>
+                <ShopPage itemsCount={this.props.totalCount} tvList={this.props.TV}/>
+            </div>
+        );
+    }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        TV: state.shop.tvList,
+        totalCount: state.shop.itemsCount
+    }
+}
+
+export default connect(mapStateToProps, {getTVList})(App);

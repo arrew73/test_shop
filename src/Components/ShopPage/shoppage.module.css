@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.shopPage__items {
+    flex-basis: 19%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.shopPage__items img {
+    max-width: 180px;
+}
+
+.shopPage__searchBlock {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+}
+
+.shopPage__itemText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 14px;
+}
