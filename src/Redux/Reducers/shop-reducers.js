@@ -1,4 +1,4 @@
-import {ShopAPI} from "../../API/API";
+import list from "../../list.json";
 
 const SET_TV_LIST = 'SET_TV_LIST';
 
@@ -24,6 +24,7 @@ export const shopReducer = (state = initialState, action) => {
 const setTVList = (list, totalCount) => ({type: SET_TV_LIST, list, totalCount})
 
 export const getTVList = () => async (dispatch) => {
-    let promise = await ShopAPI.getItems()
-    dispatch(setTVList(promise, promise.length))
+    const promise = await Object.values(list.TV);
+    const length =  Object.keys(list.TV).length - 1;
+    dispatch(setTVList(promise, length))
 }
